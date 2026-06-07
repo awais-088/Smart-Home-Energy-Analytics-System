@@ -131,7 +131,7 @@ public class ApplianceForm extends JFrame {
                 )
         );
         btnSearch.addActionListener(
-                e -> searchAppliance()
+                e -> searchAppliances()
         );
         btnSearch.setBounds(970, 100, 120, 35);
         panel.add(btnSearch);
