@@ -354,10 +354,12 @@ public class ApplianceDAO {
                 new ArrayList<>();
 
         String query =
-                "SELECT *\n" +
-                        "FROM appliances\n" +
-                        "WHERE user_id=?\n" +
-                        "AND LOWER(appliance_name) LIKE ?";
+                """
+                SELECT *
+                FROM appliances
+                WHERE user_id=?
+                AND appliance_name LIKE ?
+                """;
 
         try {
 
@@ -371,8 +373,8 @@ public class ApplianceDAO {
                     Session.userId
             );
             ps.setString(
-                    1,
-                    "%" + keyword.toLowerCase() + "%"
+                    2,
+                    "%" + keyword + "%"
             );
 
             ResultSet rs =

@@ -475,28 +475,21 @@ public class ApplianceForm extends JFrame {
         }
     }
 
-    private void searchAppliance() {
+    private void searchAppliances() {
 
         String keyword =
-                txtSearch.getText().trim();
-
-        if(keyword.isEmpty()) {
-
-            loadTable();
-
-            return;
-        }
-
-        tableModel.setRowCount(0);
+                txtSearch
+                        .getText()
+                        .trim();
 
         ApplianceDAO dao =
                 new ApplianceDAO();
 
+        tableModel.setRowCount(0);
+
         for(
                 Appliance appliance :
-                dao.searchAppliances(
-                        keyword
-                )
+                dao.searchAppliances(keyword)
         ) {
 
             tableModel.addRow(
@@ -509,7 +502,6 @@ public class ApplianceForm extends JFrame {
                             appliance.getPowerRating(),
 
                             appliance.getCategory()
-
                     }
             );
         }
